@@ -46,11 +46,20 @@ add the key:
 
 in the /var/ans directory, which you should be in on exec, 
 run:
-` ansible-playbook -i inventory ping_all.yml ` 
+
+` ansible-playbook -i inventory check_ping.yml ` 
+
 to test SSH connection (file from original [repo](https://github.com/LMtx/ansible-lab-docker) stated at bottom of readme!)
 (note, it will probably bombard you with fingerprint notifs. just type 'yes', wait, and so on. or ssh into them by hostname manually) 
 
 when all comes back okay, you're all set! ssh into the other machines as you please, build some playbooks, change things around, the world is yours.
+
+## alt yaml files:
+[install_php.yml](./master/ansible/install_php.yml) -- this is to install PHP onto the hosts in the "web" group
+
+[install_cowsay.yml](./master/ansible/install_cowsay.yml) -- this is to install cowsay onto the hosts in the "workstation" group
+
+[install_mysql.yml](./master/ansible/install_mysql.yml) -- this is to install MySQL onto the hosts in the "db" group
 
 # manual removal
 run the [reset_environment.sh](./reset_environment.sh) file, or, run these commands:
