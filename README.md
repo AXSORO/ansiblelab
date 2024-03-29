@@ -21,17 +21,22 @@ if you *dont* use the included shell files, here is a runbook for how to do this
 
 to build using the docker-compose.yml file, run this in the main project directory 
 ` docker-compose up -d --build ` 
+
 once done, exec into the 'master' container
 ` docker exec -it master bash ` 
+
 then, set up the ssh agent, and add the master RSA key configured and created by the dockerfile
 ` ssh-agent bash `
+
 add the key 
 ` ssh-add master_key ` 
+
 (the default pw is 'password' - just a placeholder. definitely not secure)
 
 in the /var/ans directory, which you should be in on exec, 
 run:
-` ansible-playbook -i inventory ping_all.yml ` to test SSH connection (file from original repo stated at bottom of readme!)
+` ansible-playbook -i inventory ping_all.yml ` 
+to test SSH connection (file from original repo stated at bottom of readme!)
 (note, it will probably bombard you with fingerprint notifs. just type 'yes', wait, and so on. or ssh into them by hostname manually) 
 
 when all comes back okay, you're all set! ssh into the other machines as you please, build some playbooks, change things around, the world is yours.
