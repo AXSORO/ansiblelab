@@ -43,10 +43,18 @@ when all comes back okay, you're all set! ssh into the other machines as you ple
 
 # manual removal
 run the [reset_environment.sh](./reset_environment.sh) file, or, run these commands:
+
 ` docker-compose kill ` - stop entire lab environment
+
 ` docker-compose rm -f ` - remove all containers related to project
+
 ` docker volume rm ansiblelab_ansible_vol ` - remove volume created by compose
+
 ` docker rmi ansible_host ansible_master ansible_base ` - remove all images made by compose
+
+
+
+
 
 ## Thanks to LMtx for the original idea - and base for this project 
 Original Repo: [https://github.com/LMtx/ansible-lab-docker](https://github.com/LMtx/ansible-lab-docker)
