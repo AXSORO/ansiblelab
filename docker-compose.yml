@@ -1,0 +1,83 @@
+version: "2"
+services:
+  base:
+    build: ./base/
+    image: ansible_base
+  master:
+    links:
+      - base
+    build: ./master/
+    image: ansible_master
+    container_name: master
+    hostname: master
+    command: ["/usr/sbin/sshd","-D"]
+    volumes:
+      - ansible_vol:/var/ans
+  host:
+    links:
+      - base
+      - master
+    build: ./host/
+    image: ansible_host
+    container_name: web-serv1
+    hostname: web01
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+  host02:
+    links:
+      - base
+      - master
+      - host
+    image: ansible_host
+    container_name: web-serv2
+    hostname: web02
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+  host03:
+    links:
+      - base
+      - master
+      - host
+    image: ansible_host
+    container_name: database1
+    hostname: db01
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+  host04:
+    links:
+      - base
+      - master
+      - host
+    image: ansible_host
+    container_name: workstation01
+    hostname: wks01
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+  host05:
+    links:
+      - base
+      - master
+      - host
+    image: ansible_host
+    container_name: workstation02
+    hostname: wks02
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+  host06:
+    links:
+      - base
+      - master
+      - host
+    image: ansible_host
+    container_name: workstation03
+    hostname: wks03
+    command: ["/var/run.sh"]
+    volumes:
+     - ansible_vol:/var/ans
+volumes:
+  ansible_vol:
