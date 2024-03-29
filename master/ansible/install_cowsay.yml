@@ -1,0 +1,15 @@
+---
+- name: Install cowsay on Workstation Hosts
+  hosts: workstation
+  become: true  # Required to install packages
+
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600  # Cache is considered valid for 1 hour
+
+    - name: Install Cowsay
+      ansible.builtin.apt:
+        name: cowsay
+        state: present

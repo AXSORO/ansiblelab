@@ -1,0 +1,20 @@
+---
+- name: Install MySQL on DB Servers
+  hosts: db
+  become: true
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600 
+
+    - name: Install MySQL Server
+      ansible.builtin.apt:
+        name: mysql-server
+        state: present
+
+    - name: Ensure MySQL service is running
+      ansible.builtin.service:
+        name: mysql
+        state: started
+        enabled: yes
