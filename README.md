@@ -6,9 +6,11 @@ these machines are based off the lastest build of debian.
 the compose file, dockerfiles for each container, and scripts included in this repo will set up and configure *most* of what is needed to get started. 
 
 
-there are 2 files in the main folder of this repo, a reset_environment.sh and build_environment.sh file:
-the build will.. build the environment with docker-compose, then properly exec into the master container and run the welcome script. 
-the reset will remove all containers, images, and volumes that were created by this project. this will not touch your other containers/images/volumes, and is specifically targeted to this lab only. 
+there are 2 files in the main folder of this repo, a [reset_environment.sh](./reset_environment.sh) and [build_environment.sh](./build_environment.sh) file:
+
+the build script will.. build the environment with docker-compose, then properly exec into the master container and run the welcome script. 
+
+the reset script will remove all containers, images, and volumes that were created by this project. this will not touch your other containers/images/volumes, and is specifically targeted to this lab only. 
 
 # environment concept 
 the 6 hosts are down to these "functions", despite them not having any tools installed prior. these functions are just for naming and mockup purposes
