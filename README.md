@@ -17,7 +17,7 @@ the 6 hosts are down to these "functions", despite them not having any tools ins
 3x "workstation" containers
 
 # manual setup
-if you *dont* use the included shell files, here is a runbook for how to do this manually without the scripts:
+if you don't want to use the [build_environment.sh](./build_environment.sh)
 
 to build using the docker-compose.yml file, run this in the main project directory 
 ` docker-compose up -d --build ` 
@@ -41,6 +41,13 @@ to test SSH connection (file from original repo stated at bottom of readme!)
 
 when all comes back okay, you're all set! ssh into the other machines as you please, build some playbooks, change things around, the world is yours.
 
-# Thanks to LMtx for the original idea - and base for this project 
+# manual removal
+run the [reset_environment.sh](./reset_environment.sh) file, or, run these commands:
+` docker-compose kill ` - stop entire lab environment
+` docker-compose rm -f ` - remove all containers related to project
+` docker volume rm ansiblelab_ansible_vol ` - remove volume created by compose
+` docker rmi ansible_host ansible_master ansible_base ` - remove all images made by compose
+
+## Thanks to LMtx for the original idea - and base for this project 
 Original Repo: [https://github.com/LMtx/ansible-lab-docker](https://github.com/LMtx/ansible-lab-docker)
 
