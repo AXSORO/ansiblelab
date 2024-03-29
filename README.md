@@ -1,5 +1,5 @@
 # intro
-a six [host](./host/), single [master](./master/) container project for creating an [Ansible](https://www.ansible.com/) lab environment made uisng [docker-compose](https://docs.docker.com/compose/). there is a "[base]"(./base/) image that is used to build the master/hosts off of.
+a six [host](./host/), single [master](./master/) container project for creating an [Ansible](https://www.ansible.com/) lab environment made uisng [docker-compose](https://docs.docker.com/compose/). there is a [base](./base/) image that is used to build the master/hosts off of.
 
 these machines are based off the lastest build of [debian](https://www.debian.org/).
 
