@@ -1,9 +1,10 @@
 # intro
-a 6 host, 1 master ansible lab environment made uisng docker-compose. there is a "base" image that is used to build the master/hosts off of.
-these machines are based off the lastest build of debian.
+a 6 host, 1 master [Ansible](https://www.ansible.com/) lab environment made uisng [docker-compose](https://docs.docker.com/compose/). there is a "base" image that is used to build the master/hosts off of.
+
+these machines are based off the lastest build of [debian](https://www.debian.org/).
 
 # first steps
-the compose file, dockerfiles for each container, and scripts included in this repo will set up and configure *most* of what is needed to get started. 
+the [compose](./docker-compose.yml) file, dockerfiles for each container, and scripts included in this repo will set up and configure *most* of what is needed to get started. 
 
 
 there are 2 files in the main folder of this repo, a [reset_environment.sh](./reset_environment.sh) and [build_environment.sh](./build_environment.sh) file:
