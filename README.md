@@ -26,16 +26,20 @@ the 6 hosts are down to these "functions", despite them not having any tools ins
 # manual setup
 if you don't want to use the [build_environment.sh](./build_environment.sh)
 
-to build using the [docker-compose.yml](./docker-compose.yml) file, run this in the main project directory 
+to build using the [docker-compose.yml](./docker-compose.yml) file:
+
 ` docker-compose up -d --build ` 
 
-once done, exec into the 'master' container
+once done, exec into the 'master' container:
+
 ` docker exec -it master bash ` 
 
-then, set up the ssh agent, and add the master RSA key configured and created by the dockerfile
+then, set up the ssh agent, and add the master RSA key configured and created by the dockerfile:
+
 ` ssh-agent bash `
 
-add the key 
+add the key:
+
 ` ssh-add master_key ` 
 
 (the default pw is 'password' - just a placeholder. definitely not secure)
