@@ -1,5 +1,5 @@
 # intro
-a 6 host, 1 master [Ansible](https://www.ansible.com/) lab environment made uisng [docker-compose](https://docs.docker.com/compose/). there is a "base" image that is used to build the master/hosts off of.
+a [6 host](./host/), 1 [master](./master/) [Ansible](https://www.ansible.com/) lab environment made uisng [docker-compose](https://docs.docker.com/compose/). there is a ["base"](./base/) image that is used to build the master/hosts off of.
 
 these machines are based off the lastest build of [debian](https://www.debian.org/).
 
@@ -15,14 +15,18 @@ the reset script will remove all containers, images, and volumes that were creat
 
 # environment concept 
 the 6 hosts are down to these "functions", despite them not having any tools installed prior. these functions are just for naming and mockup purposes
+
 2x "web" servers
+
 1x "database" server
+
 3x "workstation" containers
+
 
 # manual setup
 if you don't want to use the [build_environment.sh](./build_environment.sh)
 
-to build using the docker-compose.yml file, run this in the main project directory 
+to build using the [docker-compose.yml](./docker-compose.yml) file, run this in the main project directory 
 ` docker-compose up -d --build ` 
 
 once done, exec into the 'master' container
@@ -39,7 +43,7 @@ add the key
 in the /var/ans directory, which you should be in on exec, 
 run:
 ` ansible-playbook -i inventory ping_all.yml ` 
-to test SSH connection (file from original repo stated at bottom of readme!)
+to test SSH connection (file from original [repo](https://github.com/LMtx/ansible-lab-docker) stated at bottom of readme!)
 (note, it will probably bombard you with fingerprint notifs. just type 'yes', wait, and so on. or ssh into them by hostname manually) 
 
 when all comes back okay, you're all set! ssh into the other machines as you please, build some playbooks, change things around, the world is yours.
